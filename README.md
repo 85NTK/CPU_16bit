@@ -70,7 +70,7 @@ endmodule // counter_testbench
 
 ## REGISTER
 ## Flowchart
-![counter_flowchart](/FLOWCHART/register_Block.png)
+![register_flowchart](/FLOWCHART/register_Block.png)
 
 |Sequence number|Name pin|Number of bits|Terminal|Function|
 |---------------|--------|--------------|--------|--------|
@@ -138,11 +138,11 @@ module register_testbench ( ) ;
 endmodule // counter_testbench
 ```
 ## Verification
-![counter_verification](/VERIFICATION/register_Verification_Result.png)
+![register_verification](/VERIFICATION/register_Verification_Result.png)
 
 ## MULTIPLEXER
 ## Flowchart
-![counter_flowchart](/FLOWCHART/multiplexer_Block.png)
+![mux_flowchart](/FLOWCHART/multiplexer_Block.png)
 
 |Sequence number|Name pin|Number of bits|Terminal|Function|
 |---------------|--------|--------------|--------|--------|
@@ -304,11 +304,11 @@ module multiplexer_tb ();
 endmodule
 ```
 ## Verification
-![counter_verification](/VERIFICATION/mux_Verification_Result.png)
+![mux_verification](/VERIFICATION/mux_Verification_Result.png)
 
 ## ALU
 ## Flowchart
-![counter_flowchart](/FLOWCHART/alu_Block.png)
+![alu_flowchart](/FLOWCHART/alu_Block.png)
 
 |Sequence number|Name pin|Number of bits|Terminal|Function|
 |---------------|--------|--------------|--------|--------|
@@ -376,7 +376,74 @@ endmodule
 `timescale 1ns/1ps
 
 module alu_tb ();
-  alu_Verification_Result.png)
+  wire [15:0] aluout;
+  
+  reg clk, ain, sub, gin;
+  reg [15:0] buswires;
+  
+  alu alu_tb (
+    .clk(clk), 
+    .ain(ain), 
+    .sub(sub), 
+    .gin(gin), 
+    .buswires(buswires),
+    .aluout(aluout)
+  );
+  
+  always #10 clk = ~clk;
+  
+  initial begin
+    
+    clk = 1'b0;
+    ain = 1'b0;
+    gin = 1'b0;
+    sub = 1'b0;
+    buswires = 16'd0;
+    #5
+    ain = 1'b1;
+  end
+  
+  initial begin
+    #20
+    gin = 1'b1; buswires = 16'd1; 
+    #20 
+    buswires = 16'd2; 
+    #20 
+    buswires = 16'd3; 
+    #20 
+    buswires = 16'd4; 
+    #20 
+    buswires = 16'd5; 
+    #20 
+    buswires = 16'd6; 
+    #40
+    sub = 1'b1; buswires = 16'd7;
+    #20
+    buswires = 16'd6;
+	    #20
+    buswires = 16'd5; 
+    #20 
+    buswires = 16'd4;
+    #20 
+    buswires = 16'd3; 
+    #20 
+    buswires = 16'd2; 
+    #20 
+    buswires = 16'd1; 
+    #50
+    $finish;
+    
+  end
+  
+  initial begin
+    $dumpfile("alu.vcd");
+    $dumpvars;
+  end
+  
+endmodule
+```
+## Verification
+![alu_verification](/VERIFICATION/alu_Verification_Result.png)
 
 ## CU
 ## CPU
