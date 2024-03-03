@@ -65,6 +65,8 @@ module counter_testbench ( ) ;
 	
 endmodule // counter_testbench
 ```
+## Verification
+![counter_verification](/VERIFICATION/counter_Verification_Result.png)
 ## REGISTER
 ## DECODER
 ## MULTIPLEXER
