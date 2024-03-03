@@ -318,6 +318,7 @@ endmodule
 |4|gin|1|input|control_in|
 |5|sub|1|input|control_in|
 |6|alu_out|16|output|data_out|
+
 ![alu_flowchart](/FLOWCHART/alu_Flowchart.png)
 
 ## RTL code
