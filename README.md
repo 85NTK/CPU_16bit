@@ -66,7 +66,7 @@ module counter_testbench ( ) ;
 endmodule // counter_testbench
 ```
 ## Verification
-![counter_verification](/VERIFICATION/counter_Verification_Result.png)
+![counter_verification](/VERIFICATION/countercounter_Verification_Result.png)
 
 ## REGISTER
 ## Flowchart
@@ -304,7 +304,7 @@ module multiplexer_tb ();
 endmodule
 ```
 ## Verification
-![counter_verification](/VERIFICATION/multiplexer_Verification_Result.png)
+![counter_verification](/VERIFICATION/mux_Verification_Result.png)
 ## ALU
 ## CU
 ## CPU
