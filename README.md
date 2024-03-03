@@ -139,8 +139,172 @@ endmodule // counter_testbench
 ```
 ## Verification
 ![counter_verification](/VERIFICATION/register_Verification_Result.png)
-## DECODER
+
 ## MULTIPLEXER
+## Flowchart
+![counter_flowchart](/FLOWCHART/multiplexer_Block.png)
+
+|Sequence number|Name pin|Number of bits|Terminal|Function|
+|---------------|--------|--------------|--------|--------|
+|1|din|16|input|datatin|
+|2|r0|16|input|data_in|
+|3|r1|16|input|data_in|
+|4|r2|16|input|data_in|
+|5|r3|16|input|data_in|
+|6|r4|16|input|data_in|
+|7|r5|16|input|data_in|
+|8|r6|16|input|data_in|
+|9|r7|16|input|data_in|
+|---------------|--------|--------------|--------|--------|
+|11|aluout|16|input|data_in|
+|12|buswires|16|output|data_out|
+|13|rout|3|i|selection|
+|14|din_en|1|i|selection|
+|15|gout|1|i|selection|
+
+## RTL code
+```verilog
+module multiplexer (din, r0, r1, r2, r3, r4, r5, r6, r7, aluout, r_out, din_en, gout, buswires);
+	input [15:0] din, r0, r1, r2, r3, r4, r5, r6, r7, aluout;
+	input [2:0] r_out;
+	input din_en, gout;
+	
+	output [15:0] buswires;
+	reg [15:0] buswires;
+
+    always @(*) begin
+        if (din_en) begin
+            buswires = din;
+        end else begin
+            if (gout) begin
+                buswires = aluout;
+            end else begin
+                case (r_out)
+                    3'b000: buswires = r0;
+                    3'b001: buswires = r1;
+                    3'b010: buswires = r2;
+                    3'b011: buswires = r3;
+                    3'b100: buswires = r4;
+                    3'b101: buswires = r5;
+                    3'b110: buswires = r6;
+                    3'b111: buswires = r7;
+                    default: buswires = r0;
+                endcase
+            end
+        end
+    end
+
+endmodule
+```
+## Testbench
+```verilog
+`timescale 1ns/1ps
+
+module multiplexer_tb ();
+	reg [15:0] din, r0, r1, r2, r3, r4, r5, r6, r7, aluout;
+	reg [2:0] r_out;
+	reg din_en, gout;
+
+	wire [15:0] buswires;
+	
+    multiplexer mux_tb (
+        .din(din), 
+        .r0(r0), 
+        .r1(r1), 
+        .r2(r2), 
+        .r3(r3), 
+        .r4(r4), 
+        .r5(r5), 
+        .r6(r6), 
+        .r7(r7), 
+        .aluout(aluout), 
+        .r_out(r_out), 
+        .din_en(din_en), 
+        .gout(gout), 
+        .buswires(buswires)
+    );
+
+	
+	   initial begin
+        // Initialize Inputs
+        din = 16'h0;
+        r0 = 16'h0;
+        r1 = 16'h0;
+        r2 = 16'h0;
+        r3 = 16'h0;
+        r4 = 16'h0;
+        r5 = 16'h0;
+        r6 = 16'h0;
+        r7 = 16'h0;
+        aluout = 16'h0;
+        r_out = 3'b000;
+        din_en = 1'b0;
+        gout = 1'b0;
+
+        // Wait 10 ns for global reset to finish
+        #10;
+
+        // Add stimulus here
+        din = 16'h0;
+        r0 = 16'h1;
+        r1 = 16'h2;
+        r2 = 16'h3;
+        r3 = 16'h4;
+        r4 = 16'h5;
+        r5 = 16'h6;
+        r6 = 16'h7;
+        r7 = 16'h8;
+        aluout = 16'h9;
+        #10
+        din_en = 1'b1;
+        #10;
+        din_en = 1'b0;
+        gout = 1'b1;
+        #10;
+        din_en = 1'b0;
+        gout = 1'b0;
+        r_out = 3'b000;
+        #10;
+        din_en = 1'b0;
+        gout = 1'b0;
+        r_out = 3'b001;
+        #10;
+        din_en = 1'b0;
+        gout = 1'b0;
+        r_out = 3'b010;
+        #10
+        din_en = 1'b0;
+        gout = 1'b0;
+        r_out = 3'b011;
+        #10
+        din_en = 1'b0;
+        gout = 1'b0;
+        r_out = 3'b100;
+        #10
+        din_en = 1'b0;
+        gout = 1'b0;
+        r_out = 3'b101;
+        #10
+        din_en = 1'b0;
+        gout = 1'b0;
+        r_out = 3'b110;
+        #10
+        din_en = 1'b0;
+        gout = 1'b0;
+        r_out = 3'b111;
+        #10;
+        $finish;
+    end
+	
+	initial begin 
+		$dumpfile("multiplexer.vcd");
+		$dumpvars;
+	end
+	
+endmodule
+```
+## Verification
+![counter_verification](/VERIFICATION/multiplexer_Verification_Result.png)
 ## ALU
 ## CU
 ## CPU
