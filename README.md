@@ -158,9 +158,9 @@ endmodule // counter_testbench
 |---------------|--------|--------------|--------|--------|
 |11|aluout|16|input|data_in|
 |12|buswires|16|output|data_out|
-|13|rout|3|i|selection|
-|14|din_en|1|i|selection|
-|15|gout|1|i|selection|
+|13|rout|3|input|selection|
+|14|din_en|1|input|selection|
+|15|gout|1|input|selection|
 
 ### RTL code
 ```verilog
@@ -448,5 +448,24 @@ endmodule
 ![alu_verification](/VERIFICATION/alu_Verification_Result.png)
 
 ## CU
+### Flowchart
+![alu_block](/FLOWCHART/cu_Block.png)
+
+|Sequence number|Name pin|Number of bits|Terminal|Function|
+|---------------|--------|--------------|--------|--------|
+|1|Run|1|input|Run|
+|2|resetn|1|input|Reset|
+|3|Ir|9|input|inst|
+|4|state|2|input|Inst cycle|
+|5|ain|1|output|Enable A|
+|6|gin|1|output|Enable G|
+|7|sub|1|output|Select add or sub|
+|8|rin|8|output|Enable r0-r7|
+|9|rout|3|output|-> mux|
+|10|din_en|1|output|-> mux|
+|11|ir_en|1|output|Enable ir|
+|12|clear|1|output|Clear counter|
+|13|done|1|output|complete|
+
 ## CPU
 ## LOGIC SYNTHESIS
