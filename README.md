@@ -1,4 +1,6 @@
 # CPU_16bit
+---
+***
 ## COUNTER
 ### Flowchart
 ![counter_flowchart](/FLOWCHART/counter_Block.png)
@@ -67,6 +69,8 @@ endmodule // counter_testbench
 ```
 ### Verification
 ![counter_verification](/VERIFICATION/counter_Verification_Result.png)
+---
+***
 
 ## REGISTER
 ### Flowchart
@@ -139,6 +143,8 @@ endmodule // counter_testbench
 ```
 ### Verification
 ![register_verification](/VERIFICATION/register_Verification_Result.png)
+---
+***
 
 ## MULTIPLEXER
 ### Flowchart
@@ -305,6 +311,8 @@ endmodule
 ```
 ### Verification
 ![mux_verification](/VERIFICATION/mux_Verification_Result.png)
+---
+***
 
 ## ALU
 ### Flowchart
@@ -446,6 +454,8 @@ endmodule
 ```
 ### Verification
 ![alu_verification](/VERIFICATION/alu_Verification_Result.png)
+---
+***
 
 ## CU
 ### Flowchart
@@ -661,6 +671,8 @@ endmodule
 ```
 ### Verification
 ![cu_verification](/VERIFICATION/cu_Verification_Result.png)
+---
+***
 
 ## CPU
 ### Flowchart
@@ -1134,6 +1146,8 @@ endmodule
 ```
 ### Verification
 ![CPU_verification](/VERIFICATION/CPU_Verification_Result.png)
+---
+***
 
 ## LOGIC SYNTHESIS
 ### Library
@@ -1144,3 +1158,5 @@ endmodule
 ![modules](/LOGIC_SYNTHESIS/modules.png)
 ![synthesis_Block](/LOGIC_SYNTHESIS/synthesis_Block.png)
 ![synthesis](/LOGIC_SYNTHESIS/synthesis.png)
+---
+***
