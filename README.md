@@ -1137,4 +1137,10 @@ endmodule
 
 ## LOGIC SYNTHESIS
 ### Library
-
+![library](/LOGIC_SYNTHESIS/library.png)
+### Constraints
+![constraints](/LOGIC_SYNTHESIS/timing_Constraints.png)
+### Synthesis
+![modules](/LOGIC_SYNTHESIS/modules.png)
+![synthesis_Block](/LOGIC_SYNTHESIS/synthesis_Block.png)
+![synthesis](/LOGIC_SYNTHESIS/synthesis.png)
