@@ -1,6 +1,6 @@
 # CPU_16bit
 ## COUNTER
-## Flowchart
+### Flowchart
 ![counter_flowchart](/FLOWCHART/counter_Block.png)
 
 |Sequence number|Name pin|Number of bits|Terminal|Function|
@@ -9,7 +9,7 @@
 |2|clock|1|input||
 |3|state|2|output|data_out|
 
-## RTL code
+### RTL code
 ```verilog
 module counter ( state, clk, clear ) ;
 
@@ -28,7 +28,7 @@ module counter ( state, clk, clear ) ;
 	
 endmodule // counter
 ```
-## Testbench
+### Testbench
 ```verilog
 `timescale 1ns/10ps 
 module counter_testbench ( ) ; 
@@ -65,11 +65,11 @@ module counter_testbench ( ) ;
 	
 endmodule // counter_testbench
 ```
-## Verification
+### Verification
 ![counter_verification](/VERIFICATION/countercounter_Verification_Result.png)
 
 ## REGISTER
-## Flowchart
+### Flowchart
 ![register_flowchart](/FLOWCHART/register_Block.png)
 
 |Sequence number|Name pin|Number of bits|Terminal|Function|
@@ -79,7 +79,7 @@ endmodule // counter_testbench
 |3|buswires|16|input|data_in|
 |4|r[...]|16|output|data_out|
 
-## RTL code
+### RTL code
 ```verilog
 module register(clk, r_in, buswires, r_out);
 	// Inputs
@@ -98,7 +98,7 @@ module register(clk, r_in, buswires, r_out);
 	
 endmodule
 ```
-## Testbench
+### Testbench
 ```verilog
 `timescale 1ns/10ps 
 module register_testbench ( ) ; 
@@ -137,11 +137,11 @@ module register_testbench ( ) ;
 	end 
 endmodule // counter_testbench
 ```
-## Verification
+### Verification
 ![register_verification](/VERIFICATION/register_Verification_Result.png)
 
 ## MULTIPLEXER
-## Flowchart
+### Flowchart
 ![mux_flowchart](/FLOWCHART/multiplexer_Block.png)
 
 |Sequence number|Name pin|Number of bits|Terminal|Function|
@@ -162,7 +162,7 @@ endmodule // counter_testbench
 |14|din_en|1|i|selection|
 |15|gout|1|i|selection|
 
-## RTL code
+### RTL code
 ```verilog
 module multiplexer (din, r0, r1, r2, r3, r4, r5, r6, r7, aluout, r_out, din_en, gout, buswires);
 	input [15:0] din, r0, r1, r2, r3, r4, r5, r6, r7, aluout;
@@ -196,7 +196,7 @@ module multiplexer (din, r0, r1, r2, r3, r4, r5, r6, r7, aluout, r_out, din_en, 
 
 endmodule
 ```
-## Testbench
+### Testbench
 ```verilog
 `timescale 1ns/1ps
 
@@ -303,11 +303,11 @@ module multiplexer_tb ();
 	
 endmodule
 ```
-## Verification
+### Verification
 ![mux_verification](/VERIFICATION/mux_Verification_Result.png)
 
 ## ALU
-## Flowchart
+### Flowchart
 ![alu_block](/FLOWCHART/alu_Block.png)
 
 |Sequence number|Name pin|Number of bits|Terminal|Function|
@@ -321,7 +321,7 @@ endmodule
 
 ![alu_flowchart](/FLOWCHART/alu_Flowchart.png)
 
-## RTL code
+### RTL code
 ```verilog
 module register(clk, r_in, buswires, r_out);
 	// Inputs
@@ -373,7 +373,7 @@ module alu (buswires, clk, ain, sub, gin, aluout);
   
 endmodule
 ```
-## Testbench
+### Testbench
 ```verilog
 `timescale 1ns/1ps
 
@@ -444,7 +444,7 @@ module alu_tb ();
   
 endmodule
 ```
-## Verification
+### Verification
 ![alu_verification](/VERIFICATION/alu_Verification_Result.png)
 
 ## CU
