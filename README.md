@@ -1145,7 +1145,7 @@ module tb_CPU;
 endmodule
 ```
 ### Verification
-![CPU_verification](/VERIFICATION/CPU_Verification_Result.png)
+![CPU_verification](/VERIFICATION/cpu_Verification_result.png)
 ---
 ***
 
