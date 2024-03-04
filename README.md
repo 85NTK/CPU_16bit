@@ -676,7 +676,7 @@ endmodule
 
 ## CPU
 ### Flowchart
-![CPU_block](/FLOWCHART/CPU_Block.png)
+![CPU_block](/FLOWCHART/cpu_Block.png)
 ### CPU includes:
 - 8 register 16bit R0, R1, ..., R7: store the necessary data
 - 1 mux 10 input, 1 output: control the data flow in CPU
